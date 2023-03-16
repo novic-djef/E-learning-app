@@ -23,7 +23,7 @@ const themeReducer = (state = initialState, action) => {
     case themeActionTypes.TOGGLE_THEME_FAILURE:
       return {
         ...state,
-        error: action.payload.error,
+        error: action.payload.error,git remote add origin https://github.com/novic-djef/E-learning-app.git
       };
     default:
       return state;
