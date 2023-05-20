@@ -27,7 +27,7 @@ export default function App() {
    // <Provider store={store}>
     <NavigationContainer>
       <Tab.Navigator
-      screenOptions={{headerShown: false}}
+       screenOptions={{headerShown: false}}
   //  screenOptions={({ route }) => ({
   //   headerShown: false,
   //   tabBarIcon: ({ focused, color, size }) => {

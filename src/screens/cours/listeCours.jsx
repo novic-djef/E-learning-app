@@ -1,6 +1,16 @@
-import { View, Text, Image, StyleSheet, Animated, FlatList } from 'react-native'
+import { View, Text, Image, StyleSheet, FlatList } from 'react-native'
 import React, { useRef } from 'react'
 
+import Animated, { 
+  withTiming, 
+  withDelay, 
+  useSharedValue, 
+  useAnimatedStyle, 
+  runOnJS, 
+  useAnimatedScrollHandler,
+  interpolate,
+  Extrapolate,
+} from 'react-native-reanimated';
 
 import { IconsButton, HorizontalCourses, LineDivider, FilterModal } from '../../components';
 import { COLORS, FONTS, SIZES, images, icons, dummyData } from '../../constants';
@@ -8,62 +18,62 @@ import { SharedElement } from 'react-navigation-shared-element';
  
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList)
 
+const HEADER_HEIGHT = 250;
+
 const ListeCours = ({navigation, route}) => {
 
- // const headerShareValue = useAnimatedValue(80)
-// const filterModalSharedValue1 = useSharedValue(SIZES.height)
-// const filterModalSharedValue2 = useSharedValue(SIZES.height)
+const headerShareValue = useSharedValue(80)
+const filterModalSharedValue1 = useSharedValue(SIZES.height)
+const filterModalSharedValue2 = useSharedValue(SIZES.height)
 
 
   function BackHandler() {
     navigation.goBack()
   }
 
-  // function RenderModal() {
-  //   navigation.naviagte("FilterModal")
-  // }
+
 
   const {category, sharedElementPrefix} = route.params;
   // render
 
 const flatListRef = useRef()
-// const scrollY = useAnimatedValue(0)
-// const onScroll = useAnimatedScrollHandler((event) => {
-//   scrollY.value = event.containerStyle.y
-// })
+const scrollY = useSharedValue(0)
+const onScroll = useAnimatedScrollHandler((event) => {
+  scrollY.value = event.contentOffset.y;
+})
 
 
   function renderHeader() {
 
-    // headerShareValue.value = withDelay(500,
+    // headerSharedValue.value = withDelay(500,
     //   withTiming(0, {
     //     duration: 500
     //   }))
 
-      // const headerFadeAnimatedStyle = useAnimatedStyle(() =>{
-      //   return {
-      //     opacity: interpolate(headerShareValue.value,
-      //       [80, 0], [0, 1])
-      //   }
-      // })
+      const headerFadeAnimatedStyle = useAnimatedStyle(() =>{
+        return {
+          opacity: interpolate(headerShareValue.value,
+            [80, 0], [0, 1])
+        }
+      })
 
 
-    //const headerTranslateAnimatedStyle = useAnimatedStyle(
-    //   () => {
-    //     return {
-    //       transform: [
-    //        {
-    //         tralateY: headerSharedValue.value
-    //        }
-    //       ]
-    //     }
-    //   }
-    // )
+    const headerTranslateAnimatedStyle = useAnimatedStyle(
+      () => {
+        return {
+          transform: [
+           {
+           // translateY: headerSharedValue.value
+           }
+          ]
+        }
+      }
+    )
 
     return(
       <Animated.View
        style={{
-        position: "relative",
+        position: "absolute",
         top: 0,
         left: 0,
         right: 0,
@@ -115,7 +125,7 @@ const flatListRef = useRef()
 {/* back button */}
 
 <Animated.View 
- // style={headerFadeAnimatedStyle}
+  style={headerFadeAnimatedStyle}
 
 >
          <IconsButton 
@@ -173,7 +183,7 @@ const flatListRef = useRef()
       showsHorizontalScrollIndicator={false}
       scrollEventThrottle={16}
       keyboardDismissMode="on-drag"
-      //onScroll={onScroll}
+      onScroll={onScroll}
       ListHeaderComponent={
         <View
           style={{
@@ -211,7 +221,18 @@ const flatListRef = useRef()
       borderRadius: 10,
       backgroundColor: COLORS.primary
      }}
-   onPress={() => renderModal()}
+   onPress={() => {
+     filterModalSharedValue1.value 
+     = withTiming(0, {
+      duration: 100
+     })
+     filterModalSharedValue2.value 
+     = withDelay(100, 
+       withTiming(0, { 
+        duration: 500
+       })
+      )
+   }}
    />
 
         </View>
@@ -296,10 +317,10 @@ const flatListRef = useRef()
      {renderResult()}
 
      {/* filter modal */}
-       {/* <FilterModal  
-      //  filterModalSharedValue1={filterModalSharedValue1}
-      //  filterModalSharedValue2={filterModalSharedValue2}
-       />   */}
+       <FilterModal  
+       filterModalSharedValue1={filterModalSharedValue1}
+       filterModalSharedValue2={filterModalSharedValue2}
+       />  
 
        {/* {renderModal()}  */}
   
@@ -311,7 +332,7 @@ const styles = StyleSheet.create({
 })
 
 ListeCours.sharedElements = (route, otherRoute, showing) => {
-  if(otherRoute.name === 'HomeStack'){
+  if(otherRoute.name === 'CoursStack'){
    const {category, sharedElementPrefix } = route.params;
 
   return [

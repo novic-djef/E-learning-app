@@ -58,7 +58,7 @@ const ChapitreCours = () => {
      </View>
      {/* Prefesseur */}
       <View
-         styl={{
+         style={{
             flexDirection: "row",
             marginTop: SIZES.radius,
             alignItems: 'center'
@@ -89,7 +89,7 @@ const ChapitreCours = () => {
                 fontSize: 18
               }}
             >
-{dummyData?.course_details?.instructor?.name}
+     {dummyData?.course_details?.instructor?.name}
 
             </Text>
 
@@ -98,9 +98,10 @@ const ChapitreCours = () => {
                 ...FONTS.h3,
               }}
             >
-{dummyData?.course_details?.instructor?.title}
+        {dummyData?.course_details?.instructor?.title}
 
             </Text>
+        </View>
 {/* text button */}
 <TextButton
  label="+ Suivre"
@@ -116,7 +117,7 @@ const ChapitreCours = () => {
 />
         </View>
 
-      </View>
+    
 
 </View>
         )
@@ -228,7 +229,7 @@ function renderCoursPopulaire() {
         <View
         
         style={{
-            margin: SIZES.padding
+            marginTop: SIZES.padding
         }}>
             {/* header */}
             <View

@@ -66,7 +66,7 @@ function HomeScreen() {
   
           }}>
          <Text style={{...FONTS.h2}}>Hello Novic</Text>
-         <Text style={{ color: COLORS.gray50, ...FONTS.body3}}>mardi, 28 fev 2023</Text>
+         <Text style={{ color: COLORS.gray50, ...FONTS.body3}}>Dim, 19 mars 2023</Text>
           </View>
   
           {/* notifications */}
@@ -104,20 +104,20 @@ function HomeScreen() {
                 color: COLORS.white,
                 ...FONTS.body2,
                 textTransform: 'uppercase',
-              }}>bonjour</Text>
+              }}>Formation Complete</Text>
             <Text
              style={{
               color: COLORS.white,
               ...FONTS.h2,
              }}
             >
-              cours sur le HTML && CSS disponible en video et doculantation</Text>
+              JavaScript, TypeScript disponible en video et PDF</Text>
             <Text
               style={{
                marginTop: SIZES.radius,
                color: COLORS.white,
                ...FONTS.body4,
-              }}>bonjour</Text>
+              }}>14h30 De cours</Text>
            </View>
   
           {/* Image */}

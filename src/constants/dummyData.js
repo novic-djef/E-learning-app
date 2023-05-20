@@ -150,12 +150,12 @@ const top_searches = [
 
 const course_details = {
   id: 0,
-  title: 'The Ultimate Ui/Ux Course Beginner to Advanced',
+  title: 'Ultime formation React native',
   number_of_students: '33.5k Students',
   duration: '2h 30m',
   instructor: {
-    name: 'ByProgrammers',
-    title: 'Full Stack Programmer',
+    name: 'Novic-Djef',
+    title: 'Front-end Programmer',
   },
   videos: [
     {
@@ -215,21 +215,21 @@ const course_details = {
     {
       id: 0,
       name: 'UI Fundamentals',
-      author: 'Shared by ByProgrammers',
+      author: 'Shared by Novic-Djef',
       upload_date: '13th Sep 2021',
       thumbnail: require('../../assets/images/pdf.png'),
     },
     {
       id: 1,
       name: 'UX Checklist',
-      author: 'Shared by ByProgrammers',
+      author: 'Shared by Novic-Djef',
       upload_date: '11th Sep 2021',
       thumbnail: require('../../assets/images/doc.png'),
     },
     {
       id: 2,
       name: 'Sketch File',
-      author: 'Shared by ByProgrammers',
+      author: 'Shared by Novic-Djef',
       upload_date: '7th Sep 2021',
       thumbnail: require('../../assets/images/sketch.png'),
     },
@@ -238,7 +238,7 @@ const course_details = {
     {
       id: 0,
       profile: require('../../assets/images/profile.png'),
-      name: 'ByProgrammers',
+      name: 'Novic-Djef',
       no_of_comments: '11 comments',
       no_of_likes: '72 likes',
       posted_on: '5 days ago',
@@ -248,28 +248,28 @@ const course_details = {
         {
           id: 0,
           profile: require('../../assets/images/student_1.png'),
-          name: 'ByProgrammers',
+          name: 'Novic-Djef',
           posted_on: '4 days ago',
           comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         },
         {
           id: 1,
           profile: require('../../assets/images/student_1.png'),
-          name: 'ByProgrammers',
+          name: 'Novic-Djef',
           posted_on: '4 days ago',
           comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         },
         {
           id: 2,
           profile: require('../../assets/images/student_1.png'),
-          name: 'ByProgrammers',
+          name: 'Novic-Djef',
           posted_on: '4 days ago',
           comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         },
         {
           id: 3,
           profile: require('../../assets/images/student_1.png'),
-          name: 'ByProgrammers',
+          name: 'Novic-Djef',
           posted_on: '4 days ago',
           comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         },
@@ -278,7 +278,7 @@ const course_details = {
     {
       id: 1,
       profile: require('../../assets/images/profile.png'),
-      name: 'ByProgrammers',
+      name: 'Novic-Djef',
       no_of_comments: '21 comments',
       no_of_likes: '372 likes',
       posted_on: '14 days ago',
@@ -288,21 +288,21 @@ const course_details = {
         {
           id: 0,
           profile: require('../../assets/images/student_1.png'),
-          name: 'ByProgrammers',
+          name: 'Novic-Djef',
           posted_on: '7 days ago',
           comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         },
         {
           id: 1,
           profile: require('../../assets/images/student_1.png'),
-          name: 'ByProgrammers',
+          name: 'Novic-Djef',
           posted_on: '7 days ago',
           comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         },
         {
           id: 2,
           profile: require('../../assets/images/student_1.png'),
-          name: 'ByProgrammers',
+          name: 'Novic-Djef',
           posted_on: '7 days ago',
           comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
         },

@@ -3,7 +3,7 @@
 import { View, Text, ImageBackground, TouchableOpacity, Animated, Keyboard } from 'react-native'
 import React, { createRef, useCallback, useEffect, useRef, useState } from 'react'
 
-import Video from 'react-native-video';
+ import Video from 'react-native-video';
 
 
 
@@ -11,7 +11,7 @@ import { IconsButton, LineDivider} from '../../components';
 
 import { SIZES, FONTS, COLORS, icons, constants, dummyData } from '../../constants';
 
-import ChapitreCours from './CoursTabs/chapitreCours';
+import ChapitreCours from './CoursTabs/chapitreCours';  
 import DossierCours from './CoursTabs/dossierCours';
 import DescriptionCours from './CoursTabs/descriptionCours';
 
@@ -59,7 +59,7 @@ useEffect(() => {
   let ml = []
 
   course_details_tabs.forEach(course_details_tab => {
-    course_details_tab?.ref?.current?.mesurLayout(
+    course_details_tabs.ref?.current?.mesurLayout(
       containerRef.current,
       (x, y, width, height) => {
         ml.push({
@@ -96,7 +96,11 @@ useEffect(() => {
           alignItems: "center",
           justifyContent: "center",
         }}
-        onPress={() => onTabPress(index)}
+        onPress={() => {
+          
+          Keyboard.dismiss()
+          onTabPress(index)
+        }}
       >
        <Text
          style={{
@@ -119,8 +123,8 @@ const DetailCours = ({navigation, route}) => {
 const { selectedCourse } = route.params;
 const [playVideo, setPLayVideo] = useState(false);
 
-const flatListRef = useRef()
-const scrollY = useRef(new Animated.Value(0)).current
+const flatListRef = useRef();
+const scrollX = useRef(new Animated.Value(0)).current;
 
 const onTabPress = useCallback(tabIndex => {
   flatListRef?.current?.scrollToOffset({
@@ -212,7 +216,7 @@ function renderHeader() {
 
             </View>
         )
-   }else {
+  }else {
         return(
             <View
               style={{
@@ -228,7 +232,7 @@ function renderHeader() {
           {renderHeaderComponents()}
             </View>
         )
-    }
+   }
     
 }
 
@@ -344,7 +348,7 @@ onTabPress={onTabPress }
             useNativeDriver: false
           })
          }
-       renderIte={({item, index}) => {
+       renderItem={({item, index}) => {
         return(
           <View
             style={{
@@ -353,7 +357,7 @@ onTabPress={onTabPress }
           
           >
 
-            {index == 0 && <ChapitreCours/> }
+            {index == 0 && <ChapitreCours /> }
             {index == 1 && <DossierCours /> }
             {index == 2 && <DescriptionCours /> }
           </View>
@@ -372,11 +376,11 @@ onTabPress={onTabPress }
         backgroundColor: COLORS.white
       }}
     >
-
+      
 
         {/* Video */}
         {renderVideoSection()}
-        
+          
         {/* header Section */}
         {renderHeader()}
 
